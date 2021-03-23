@@ -1,4 +1,4 @@
-{% set version = '1.65-5' %}
+{% set version = "2.0-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/spatstat.core_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/spatstat.core/spatstat.core_{{ version }}.tar.gz
-  sha256: a3ced841e70efa3d4f8c2396c5d73fc61a9373be8235f9dd989ec3519a0e0673
+  sha256: fde9a91bd32b7a3c8b25e802a16d470dcc919c24da5715149e1d91eeec119ba7
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -66,8 +66,7 @@ test:
 about:
   home: http://spatstat.org/
   license: GPL-2.0-or-later
-  summary: This is a subset of the original 'spatstat' package, containing all of the user-level
-    code from 'spatstat', except for the code for linear networks.
+  summary: This is a subset of the original 'spatstat' package, containing all of the user-level code from 'spatstat', except for the code for linear networks.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
