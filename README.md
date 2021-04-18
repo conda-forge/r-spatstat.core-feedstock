@@ -90,6 +90,7 @@ Installing `r-spatstat.core` from the `conda-forge` channel can be achieved by a
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `r-spatstat.core` can be installed with:
