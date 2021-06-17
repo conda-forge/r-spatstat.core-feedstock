@@ -1,4 +1,4 @@
-{% set version = "2.1-2" %}
+{% set version = "2.2-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/spatstat.core_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/spatstat.core/spatstat.core_{{ version }}.tar.gz
-  sha256: dafaf6c360c9fd4c4b2f076855b5450b1be46b4d6371ee4b58236d5483211d50
+  sha256: 0ecbc1ae688c8d4f41db3efa6253ac8db5c432ef714240d01a2b195950d65253
 
 build:
   merge_build_host: true  # [win]
