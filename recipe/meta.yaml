@@ -1,4 +1,4 @@
-{% set version = "2.3-2" %}
+{% set version = "2.4-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/spatstat.core_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/spatstat.core/spatstat.core_{{ version }}.tar.gz
-  sha256: 7f4d6d997f9187eda71097a53917e7cbe03f8dcfb4e758d86a90fbe42c92f63c
+  sha256: 65485213af58f224af30e4a9b850bfade6a843ef2fd5cf94c31daf410d74a6b7
 
 build:
   merge_build_host: true  # [win]
@@ -30,6 +30,7 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-matrix
@@ -38,10 +39,11 @@ requirements:
     - r-mgcv
     - r-nlme
     - r-rpart
-    - r-spatstat.data >=1.6_1
-    - r-spatstat.geom
-    - r-spatstat.sparse
-    - r-spatstat.utils >=1.18_0
+    - r-spatstat.data >=2.1_0
+    - r-spatstat.geom >=2.3_0
+    - r-spatstat.random >=2.0
+    - r-spatstat.sparse >=2.0_0
+    - r-spatstat.utils >=2.2_0
     - r-tensor
   run:
     - r-base
@@ -52,10 +54,11 @@ requirements:
     - r-mgcv
     - r-nlme
     - r-rpart
-    - r-spatstat.data >=1.6_1
-    - r-spatstat.geom
-    - r-spatstat.sparse
-    - r-spatstat.utils >=1.18_0
+    - r-spatstat.data >=2.1_0
+    - r-spatstat.geom >=2.3_0
+    - r-spatstat.random >=2.0
+    - r-spatstat.sparse >=2.0_0
+    - r-spatstat.utils >=2.2_0
     - r-tensor
 
 test:
