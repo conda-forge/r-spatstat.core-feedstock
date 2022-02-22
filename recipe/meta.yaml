@@ -23,13 +23,12 @@ requirements:
   build:
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-matrix
@@ -38,10 +37,11 @@ requirements:
     - r-mgcv
     - r-nlme
     - r-rpart
-    - r-spatstat.data >=1.6_1
-    - r-spatstat.geom
-    - r-spatstat.sparse
-    - r-spatstat.utils >=1.18_0
+    - r-spatstat.data >=2.1_0
+    - r-spatstat.geom >=2.3_0
+    - r-spatstat.random >=2.0
+    - r-spatstat.sparse >=2.0_0
+    - r-spatstat.utils >=2.2_0
     - r-tensor
   run:
     - r-base
@@ -52,10 +52,11 @@ requirements:
     - r-mgcv
     - r-nlme
     - r-rpart
-    - r-spatstat.data >=1.6_1
-    - r-spatstat.geom
-    - r-spatstat.sparse
-    - r-spatstat.utils >=1.18_0
+    - r-spatstat.data >=2.1_0
+    - r-spatstat.geom >=2.3_0
+    - r-spatstat.random >=2.0
+    - r-spatstat.sparse >=2.0_0
+    - r-spatstat.utils >=2.2_0
     - r-tensor
 
 test:
