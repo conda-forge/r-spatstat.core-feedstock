@@ -21,6 +21,19 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-rpart                    # [build_platform != target_platform]
+    - r-spatstat.geom            # [build_platform != target_platform]
+    - r-abind                    # [build_platform != target_platform]
+    - r-matrix                   # [build_platform != target_platform]
+    - r-spatstat.data            # [build_platform != target_platform]
+    - r-spatstat.random          # [build_platform != target_platform]
+    - r-mgcv                     # [build_platform != target_platform]
+    - r-nlme                     # [build_platform != target_platform]
+    - r-spatstat.utils           # [build_platform != target_platform]
+    - r-tensor                   # [build_platform != target_platform]
+    - r-spatstat.sparse          # [build_platform != target_platform]
+    - r-goftest                  # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
