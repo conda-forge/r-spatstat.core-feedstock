@@ -1,6 +1,5 @@
 {% set version = "2.4-4" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-spatstat.core
@@ -13,8 +12,7 @@ source:
   sha256: e38c39efe8b14d6e8fdbee8dd870b90c52f78ea571ab7988fd3685f48347d13b
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -35,7 +33,9 @@ requirements:
     - r-spatstat.sparse          # [build_platform != target_platform]
     - r-goftest                  # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -60,7 +60,6 @@ requirements:
     - r-tensor
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-matrix
     - r-abind
     - r-goftest >=1.2_2
